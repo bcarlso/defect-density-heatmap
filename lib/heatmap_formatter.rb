@@ -24,7 +24,7 @@ class HeatmapFormatter
           <title>SCM Heatmap</title>
           <style type='text/css'>
               body { font-family: sans-serif; }
-              ol li { display: inline; padding: 2px; }
+              ol li { display: inline; margin: 2px; }
           </style>
         </head>
         <body>
@@ -57,17 +57,15 @@ class HeatmapFormatter
   end
   
   def compute_style(total_changes, total_defects)
-    percent_of_defects = total_defects.to_f / total_changes.to_f
-    color_value = calculate_filename_color(total_changes, total_defects)
-    "font-size: #{size_for(total_changes)}; color: \##{color_value}0000;"
+    transparency = calculate_transparency(total_changes, total_defects)
+    "font-size: #{size_for(total_changes)}; background-color: rgba(255, 0, 0, #{transparency});"
   end
   
   def determine_relative_size_for(value)
     @size_calculator.size_for(value)
   end
   
-  def calculate_filename_color(total_changes, total_defects)
-    percent_of_defects = total_defects.to_f / total_changes.to_f
-    "%02x" % (percent_of_defects * 255).to_i
+  def calculate_transparency(total_changes, total_defects)
+    total_defects.to_f / total_changes.to_f
   end
 end

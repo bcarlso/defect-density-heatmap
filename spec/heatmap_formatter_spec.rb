@@ -38,15 +38,16 @@ describe HeatmapFormatter do
     file_with( :changes => 12 ).should have_font_size(36)
   end
   
-  it "Adjusts the font color of each tag based on the number of changes that were defects" do
-    file_with( :changes => 3 ).should have_color('#000000')
-  
+  it "Adjusts the background color of each tag based on the number of changes that were defects" do
+    file_with( :changes => 3 ).should match("background-color: rgba\\(255, 0, 0, 0.0\\)")
+
     file_with( :changes => 3,
-               :defects => 3 ).should have_color('#ff0000')
+               :defects => 3 ).should match("background-color: rgba\\(255, 0, 0, 1.0\\)")
+
+    file_with( :changes => 10,
+               :defects => 5 ).should match("background-color: rgba\\(255, 0, 0, 0.5\\)")
+end
   
-    file_with( :changes => 7,
-               :defects => 5 ).should have_color('#b60000')
-  end
   
   it "Generates a range of font sizes based on a min/max" do
     @formatter.size_for(12).should == 36
