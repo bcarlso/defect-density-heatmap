@@ -23,6 +23,7 @@ class HeatmapFormatter
         <head>
           <title>SCM Heatmap</title>
           <style type='text/css'>
+              body { font-family: sans-serif; }
               ol li { display: inline; padding: 2px; }
           </style>
         </head>
