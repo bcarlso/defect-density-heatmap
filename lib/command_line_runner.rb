@@ -17,7 +17,6 @@ class CommandLineRunner
       end
       
       opts.on("-f", "--file inputfile", "File containing commit data") do | filename, f2 |
-        puts filename
         options[:input_stream] = File.new(filename, 'r')
       end
       
