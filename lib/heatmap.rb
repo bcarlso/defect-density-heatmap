@@ -1,4 +1,4 @@
-require 'heatmap/version'
+require "heatmap/version"
 
 module Heatmap
   # Your code goes here...

@@ -1,14 +1,14 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "defect-density-heatmap/version"
+require "heatmap/version"
 
 Gem::Specification.new do |s|
   s.name        = "defect-density-heatmap"
-  s.version     = Defect::Density::Heatmap::VERSION
+  s.version     = Heatmap::VERSION
   s.authors     = ["Brandon Carlson"]
   s.email       = ["bcarlso@gmail.com"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
+  s.summary     = %q{Generates a 'heatmap' from files changed in the SCM system.}
   s.description = %q{TODO: Write a gem description}
 
   s.rubyforge_project = "defect-density-heatmap"
@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   # specify any dependencies here; for example:
-  # s.add_development_dependency "rspec"
+  s.add_development_dependency "rspec"
+  s.add_development_dependency "guard"
   # s.add_runtime_dependency "rest-client"
 end
