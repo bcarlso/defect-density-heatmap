@@ -3,6 +3,7 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 
 require 'rspec'
 require 'heatmap_formatter'
+require 'command_line_runner'
 
 RSpec.configure do | config |
   config.color_enabled = true
@@ -16,7 +17,7 @@ end
 
 RSpec::Matchers.define :have_color do | expected |
   match do | actual |
-    actual =~ Regexp.new(".*color: #{expected};.*")
+    actual =~ Regexp.new(".*color: rgb\\(#{expected}\\);.*")
   end
 end
 

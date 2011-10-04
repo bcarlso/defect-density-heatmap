@@ -56,16 +56,16 @@ class HeatmapFormatter
     end
   end
   
+  def calculate_filename_color(total_changes, total_defects)
+    percent_of_defects = total_defects.to_f / total_changes.to_f
+    (percent_of_defects * 255).to_i
+  end
+  
   def compute_style(total_changes, total_defects)
-    transparency = calculate_transparency(total_changes, total_defects)
-    "font-size: #{size_for(total_changes)}; background-color: rgba(255, 0, 0, #{transparency});"
+    "font-size: #{size_for(total_changes)}; color: rgb(#{calculate_filename_color(total_changes,total_defects)}, 0, 0);"
   end
   
   def determine_relative_size_for(value)
     @size_calculator.size_for(value)
-  end
-  
-  def calculate_transparency(total_changes, total_defects)
-    total_defects.to_f / total_changes.to_f
   end
 end
