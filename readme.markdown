@@ -33,4 +33,4 @@ Using the heatmap generator, we can create a tag cloud giving us a visualization
 
 The command renders a tag cloud formatted as HTML. The larger the text, the more that source file has changed. The text color changes from black to red based on the ratio of defects to changes. The more defects, the more red you see. Big + Red = Bad
 
-![Heatmap Screenshot](blob/master/screenshot.png?raw=true)
+![Heatmap Screenshot](https://github.com/bcarlso/defect-density-heatmap/blob/master/screenshot.png)
