@@ -7,9 +7,9 @@ Gem::Specification.new do |s|
   s.version     = Heatmap::VERSION
   s.authors     = ["Brandon Carlson"]
   s.email       = ["bcarlso@gmail.com"]
-  s.homepage    = ""
+  s.homepage    = "http://github.com/bcarlso/defect-density-heatmap"
   s.summary     = %q{Generates a 'heatmap' from files changed in the SCM system.}
-  s.description = %q{TODO: Write a gem description}
+  s.description = %q{Generates a tag cloud based on project file churn.}
 
   s.rubyforge_project = "defect-density-heatmap"
 
