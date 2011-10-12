@@ -23,7 +23,7 @@ class HeatmapFormatter
         <head>
           <title>SCM Heatmap</title>
           <style type='text/css'>
-              body { font-family: sans-serif; }
+              body { font-family: sans-serif; color: lightgrey; }
               ol li { display: inline; margin: 2px; }
           </style>
         </head>
@@ -58,11 +58,12 @@ class HeatmapFormatter
   
   def calculate_filename_color(total_changes, total_defects)
     percent_of_defects = total_defects.to_f / total_changes.to_f
-    (percent_of_defects * 255).to_i
+    red = (percent_of_defects * 255).to_i
+    "rgb(#{red}, #{255-red}, 0);"
   end
   
   def compute_style(total_changes, total_defects)
-    "font-size: #{size_for(total_changes)}; color: rgb(#{calculate_filename_color(total_changes,total_defects)}, 0, 0);"
+    "font-size: #{size_for(total_changes)}; color: #{calculate_filename_color(total_changes,total_defects)}"
   end
   
   def determine_relative_size_for(value)

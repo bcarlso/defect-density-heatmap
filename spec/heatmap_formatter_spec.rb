@@ -22,7 +22,7 @@ describe HeatmapFormatter do
   end
 
 
-  it "Renders each file as a tag" do
+  it "Renders each file as a tag" do 
     results = @formatter.format_entry 'path/to/SomeFile.java', 3, 0
     results.should match("<li style='.+'>SomeFile.java </li>")
   end 
@@ -39,13 +39,13 @@ describe HeatmapFormatter do
   end
   
   it "Adjusts the font color of each tag based on the number of changes that were defects" do
-    file_with( :changes => 3 ).should have_color('0, 0, 0')
+    file_with( :changes => 3 ).should have_color('0, 255, 0')
 
     file_with( :changes => 3,
                :defects => 3 ).should have_color('255, 0, 0')
   
-    file_with( :changes => 7,
-               :defects => 5 ).should have_color('182, 0, 0')
+    file_with( :changes => 10,
+               :defects => 5 ).should have_color('127, 128, 0')
   end
   
   it "Generates a range of font sizes based on a min/max" do
